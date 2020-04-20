@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const creditsController = require('../controllers/creditsController');
 
-router.get('/creditos', (req, res) =>{
-    let creditos = `Colaboradores: Ignacio Quiroga y Facundo Daniel Magra`;
-    res.send(creditos);
-});
+router.get('./creditos', creditsController.credits);
 
 module.exports = router;

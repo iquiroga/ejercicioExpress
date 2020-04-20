@@ -1,11 +1,7 @@
-let express = require('express');
-let fs = require('fs');
-let router = express.Router();
+const express = require('express');
+const router = express.Router();
+const heroesController = require('../controllers/heroesController');
 
-const heroes = JSON.parse(fs.readFileSync('./data/heroes.json'));
-
-router.get('/heroes',(req, res) =>{
-    res.send(heroes);
-});
+router.get('/heroes', heroesController.heroes);
 
 module.exports = router;

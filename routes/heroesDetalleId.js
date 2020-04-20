@@ -1,14 +1,7 @@
-let express = require('express');
-let router = express.Router();
-let fs = require('fs');
+const express = require('express');
+const router = express.Router();
+const heroesController = require('../controllers/heroesController')
 
-const heroes = JSON.parse(fs.readFileSync('./data/heroes.json'));
-
-
-router.get('/heroes/detalle/:id',(req, res) =>{
-    let idHeroe = req.params.id -1;
-    const textoRespuesta = `Hola, mi nombre es ${heroes[idHeroe].nombre} y soy ${heroes[idHeroe].profesion}`
-	res.send(textoRespuesta);
-});
+router.get('/heroes/detalle/:id', heroesController.detalleId)
 
 module.exports = router;
